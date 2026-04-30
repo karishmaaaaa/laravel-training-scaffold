@@ -25,7 +25,10 @@ Route::get('/', function () {
 //   - Same set for /tasks (nested under projects, e.g., /projects/{project}/tasks)
 // Hint: Route::resource('projects', ProjectController::class);
 // Wrap them in auth middleware (after Day 8): Route::middleware('auth')->group(function () { ... });
-
+Route::get('/projects', fn() => view('projects.index'));
+Route::get('/projects/{id}', fn() => view('projects.show'));
+Route::get('/projects/create', fn() => view('projects.create'));
+Route::get('/tasks', fn() => view('tasks.index'));
 // TODO Day 8: install Breeze, then Breeze will add its own auth routes here
 // Run: composer require laravel/breeze --dev
 //      php artisan breeze:install blade
