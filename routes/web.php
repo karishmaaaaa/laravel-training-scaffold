@@ -14,6 +14,16 @@ Route::get('/', function () {
     return view('home');
 });
 
+
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\TaskController;
+
+// Projects routes
+Route::resource('projects', ProjectController::class);
+
+// Tasks routes (nested inside projects)
+Route::get('/projects/{project}/tasks', [TaskController::class, 'index']);
+
 // TODO Day 2: define resource routes for projects and tasks
 //   - GET    /projects                      (index)
 //   - GET    /projects/create               (create form)
